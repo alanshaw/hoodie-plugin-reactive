@@ -1,0 +1,27 @@
+{
+  "name": "hoodie-plugin-reactive",
+  "version": "0.0.0",
+  "description": "Simple reactive handlebars based templating for hoodie using ractive.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserify": "browserify reactive.js > hoodie.reactive.js"
+  },
+  "keywords": [
+    "hoodieplugin",
+    "hoodie",
+    "template",
+    "templating",
+    "reactive",
+    "ractive",
+    "realtime"
+  ],
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "~2.35.0"
+  },
+  "dependencies": {
+    "ractive": "~0.3.7"
+  }
+}
