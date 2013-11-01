@@ -1,4 +1,5 @@
 var Ractive = require("ractive")
+var reactiveStore = require("./store")
 
 Hoodie.extend(function (hoodie) {
 
@@ -9,54 +10,19 @@ Hoodie.extend(function (hoodie) {
     }
   })()
 
+  // Ractive instances
   var ractives = {
     // uuid: ractive
   }
 
+  // Functions that create data for a template
   var contexters = {
     // uuid: create template context function
   }
 
+  // ReactiveStore's that remember find/findAll reduction queries
   var proxies = {
     // uuid: proxy hoodie.store
-  }
-
-  function ReactiveStore (id) {
-    this.id = id
-    this.finders = []
-    this.firstRun = true
-  }
-
-  ReactiveStore.prototype.find = function (type, id) {
-    if (this.firstRun) {
-      this.finders.push(function (obj) {
-        if (obj.type === type && obj.id === id) {
-          return true
-        }
-      })
-    }
-    return hoodie.store.find(type, id)
-  }
-
-  ReactiveStore.prototype.findAll = function (fn) {
-    if (this.firstRun) {
-      if (fn === undefined) {
-
-        this.finders.push(function () { return true })
-
-      } else if (Object.prototype.toString.call(fn) == '[object String]') {
-
-        this.finders.push(function (doc) {
-          if (doc.type === fn) {
-            return true
-          }
-        })
-
-      } else {
-        this.finders.push(fn)
-      }
-    }
-    return hoodie.store.findAll.apply(hoodie.store, arguments)
   }
 
   hoodie.store.on("change", function (e, doc) {
@@ -70,14 +36,16 @@ Hoodie.extend(function (hoodie) {
     }, [])
 
     affectedIds.forEach(function (id) {
-      ractives[id].set(contexters[id](proxies[id]))
+      contexters[id](proxies[id]).done(function (data) {
+        ractives[id].set(data)
+      })
     })
   })
 
   hoodie.reactive = function (el, tpl, context, opts) {
     // Create new ractive UUID
     var id = uuid()
-      , store = new ReactiveStore(id)
+      , store = reactiveStore(hoodie)
 
     context(store).done(function (data) {
       store.firstRun = false
