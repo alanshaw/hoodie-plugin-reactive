@@ -26,18 +26,13 @@ Hoodie.extend(function (hoodie) {
   }
 
   hoodie.store.on("change", function (e, doc) {
-    var affectedIds = Object.keys(proxies).reduce(function (ids, id) {
+    Object.keys(proxies).forEach(function (id) {
       proxies[id].finders.forEach(function (finder) {
         if (finder(doc)) {
-          ids.push(id)
+          contexters[id](proxies[id]).done(function (data) {
+            ractives[id].set(data)
+          })
         }
-      })
-      return ids
-    }, [])
-
-    affectedIds.forEach(function (id) {
-      contexters[id](proxies[id]).done(function (data) {
-        ractives[id].set(data)
       })
     })
   })
