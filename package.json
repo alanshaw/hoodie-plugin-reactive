@@ -26,9 +26,10 @@
   "author": "Alan Shaw",
   "license": "MIT",
   "dependencies": {
-    "ractive": "~0.3.7"
+    "ractive": "~0.3.7",
+    "extend": "~1.2.1"
   },
   "devDependencies": {
-    "browserify": "~2.35.0"
+    "browserify": "~2.35.1"
   }
 }

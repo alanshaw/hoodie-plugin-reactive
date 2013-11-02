@@ -36,21 +36,5 @@ module.exports = function (hoodie) {
     return hoodie.store.findAll.apply(hoodie.store, arguments)
   }
 
-  store.add = function () {
-    return hoodie.store.add.apply(hoodie.store, arguments)
-  }
-
-  store.update = function () {
-    return hoodie.store.update.apply(hoodie.store, arguments)
-  }
-
-  store.remove = function () {
-    return hoodie.store.remove.apply(hoodie.store, arguments)
-  }
-
-  store.removeAll = function () {
-    return hoodie.store.removeAll.apply(hoodie.store, arguments)
-  }
-
   return store
 }
