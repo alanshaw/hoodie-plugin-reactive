@@ -5,10 +5,10 @@ module.exports = function (hoodie, fn) {
     , store = reactiveStore(hoodie)
 
   function onStoreChange (e, doc) {
-    for (var i = 0; i < store.finders.length; i++) {
-      if (store.finders[i](doc)) {
-        return fn(store)
-      }
+    var wasFound = store.wasFound(doc)
+    // If the doc is found, or was found previously then react
+    if (store.isFound(doc) || e == "update" && wasFound) {
+      fn(store)
     }
   }
 
