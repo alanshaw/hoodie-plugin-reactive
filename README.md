@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/alanshaw/hoodie-plugin-reactive.png?branch=master)](https://travis-ci.org/alanshaw/hoodie-plugin-reactive) [![Dependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive) [![devDependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive/dev-status.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive#info=devDependencies)
 
+[![browser support](https://ci.testling.com/alanshaw/hoodie-plugin-reactive.png)](https://ci.testling.com/alanshaw/hoodie-plugin-reactive)
+
 hoodie-plugin-reactive
 ===
 Simple reactive mustache based templating for hoodie using [ractive.js](http://www.ractivejs.org/).
