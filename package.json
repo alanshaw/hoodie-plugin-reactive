@@ -10,8 +10,20 @@
     "url": "https://github.com/alanshaw/hoodie-plugin-reactive/issues"
   },
   "scripts": {
-    "test": "tape test/*",
+    "test": "tape test/*.js",
     "browserify": "browserify reactive.js > hoodie.reactive.js"
+  },
+  "testling" : {
+    "files" : "test/*.js",
+    "browsers" : [
+      "ie/6..latest",
+      "chrome/20..latest",
+      "firefox/10..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6..latest",
+      "ipad/6..latest"
+    ]
   },
   "keywords": [
     "hoodieplugin",
