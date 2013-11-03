@@ -19,7 +19,7 @@ module.exports = function (hoodie) {
     if (store.firstRun) {
       if (fn === undefined) {
 
-        finders.push(function () { return true })
+        store.finders.push(function () { return true })
 
       } else if (Object.prototype.toString.call(fn) == '[object String]') {
 

@@ -1,4 +1,4 @@
-[![Dependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive) [![devDependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive/dev-status.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive#info=devDependencies)
+[![Build Status](https://travis-ci.org/alanshaw/hoodie-plugin-reactive.png?branch=master)](https://travis-ci.org/alanshaw/hoodie-plugin-reactive) [![Dependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive) [![devDependency Status](https://david-dm.org/alanshaw/hoodie-plugin-reactive/dev-status.png)](https://david-dm.org/alanshaw/hoodie-plugin-reactive#info=devDependencies)
 
 hoodie-plugin-reactive
 ===

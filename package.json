@@ -10,7 +10,7 @@
     "url": "https://github.com/alanshaw/hoodie-plugin-reactive/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tape test/*",
     "browserify": "browserify reactive.js > hoodie.reactive.js"
   },
   "keywords": [
@@ -29,6 +29,7 @@
     "extend": "~1.2.1"
   },
   "devDependencies": {
-    "browserify": "~2.35.1"
+    "browserify": "~2.35.1",
+    "tape": "~2.1.0"
   }
 }

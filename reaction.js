@@ -5,11 +5,11 @@ module.exports = function (hoodie, fn) {
     , store = reactiveStore(hoodie)
 
   function onStoreChange (e, doc) {
-    store.finders.forEach(function (finder) {
-      if (finder(doc)) {
-        fn(store)
+    for (var i = 0; i < store.finders.length; i++) {
+      if (store.finders[i](doc)) {
+        return fn(store)
       }
-    })
+    }
   }
 
   reaction.activate = function () {
