@@ -7,7 +7,7 @@ module.exports = function (hoodie, el, html, createContext, opts) {
 
   template.reaction = reaction(hoodie, function (store) {
     createContext(store).done(function (data) {
-      store.firstRun = false
+      store.collectFinders = false
       if (data !== undefined && data !== null) {
         template.set(data)
       }
