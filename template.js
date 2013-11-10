@@ -12,7 +12,7 @@ module.exports = function (hoodie, el, html, createContext, opts) {
         template.set(data)
       }
     })
-  })
+  }, opts)
 
   return template
 }
