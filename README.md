@@ -40,3 +40,38 @@ hoodie.reaction(function (store) {
   })
 })
 ```
+
+
+Custom stores
+---
+If you want to use a store other than `hoodie.store`, a [punk store](https://npmjs.org/package/hoodie-plugin-punk) for example, you can pass it to `hoodie.reactive` or `hoodie.reaction`:
+
+```javascript
+hoodie.reactive($('#todolist'), html, function (punkStore) {
+  // punkStore.findAll... etc.
+}, {store: hoodie.punk})
+
+hoodie.reaction(function (punkStore) {
+  // punkStore.findAll... etc.
+}, {store: hoodie.punk})
+```
+
+
+Multiple stores
+---
+If you need to use multiple stores to find your data for your template or reaction then pass an array:
+
+```javascript
+hoodie.reactive($('#todolist'), html, function (store, punkStore) {
+  // store.find, punkStore.findAll... etc.
+}, {store: [hoodie.store, hoodie.punk]})
+
+hoodie.reaction(function (store, punkStore) {
+  // store.find, punkStore.findAll... etc.
+}, {store: [hoodie.store, hoodie.punk]})
+```
+
+
+Using stores
+---
+The function you pass to `hoodie.reactive` or `hoodie.reaction` __must__ use the store(s) passed in as parameter(s) in order for the magic to work. The store(s) passed to your function wrap `hoodie.store` or whatever custom store(s) you specify and if you don't use them the "magic" won't work.
