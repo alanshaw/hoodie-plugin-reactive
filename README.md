@@ -16,7 +16,7 @@ hoodie.reactive($('#todolist'), html, function (store) {
 
   store.findAll('todo').done(function (todos) {
     todos.sort(function (a, b) {
-      return a.createdAt > b.createdAt
+      return a.createdAt > b.createdAt ? -1 : a.createdAt < b.createdAt ? 1 : 0
     })
     defer.resolve({todos: todos})
   })
